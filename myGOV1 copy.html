@@ -1,0 +1,1072 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>oneGOV.UK</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/feather-icons/4.29.0/feather.min.js"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap');
+
+
+        body {
+            font-family: "Roboto", arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #ffffff;
+            color: #0b0c0c;
+            font-size: 19px;
+            line-height: 1.31579;
+            font-weight: 400;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        .govuk-header {
+            background-color: #0b0c0c;
+            padding: 10px 0;
+            border-bottom: 10px solid #1d70b8;
+        }
+
+        .govuk-header__container {
+            max-width: 960px;
+            margin: 0 auto;
+            padding: 0 30px;
+            display: flex;
+            align-items: center;
+        }
+
+        .govuk-header__logotype {
+            color: white;
+            font-weight: 700;
+            font-size: 30px;
+            text-decoration: none;
+            padding-right: 15px;
+        }
+
+        .govuk-header__logotype:hover {
+            text-decoration: underline;
+        }
+
+        .govuk-crown {
+            margin-right: 5px;
+            position: relative;
+            top: -4px;
+        }
+
+        .govuk-width-container {
+            max-width: 960px;
+            margin: 0 auto;
+            padding: 30px;
+        }
+
+        .govuk-heading-xl {
+            font-size: 48px;
+            margin-top: 30px;
+            margin-bottom: 30px;
+            font-weight: 700;
+            line-height: 1.04167;
+            letter-spacing: -0.02em;
+        }
+
+        .govuk-heading-l {
+            font-size: 36px;
+            margin-top: 30px;
+            margin-bottom: 20px;
+            font-weight: 700;
+            line-height: 1.11111;
+            letter-spacing: -0.02em;
+        }
+
+        .govuk-heading-m {
+            font-size: 24px;
+            margin-top: 20px;
+            margin-bottom: 15px;
+            font-weight: 700;
+            line-height: 1.25;
+        }
+
+        .govuk-form-group {
+            margin-bottom: 20px;
+        }
+
+        .govuk-label {
+            font-weight: 500;
+            line-height: 1.25;
+        }
+
+        .govuk-input {
+            width: 100%;
+            padding: 5px;
+            border: 2px solid #0b0c0c;
+            font-size: 19px;
+            line-height: 1.31579;
+        }
+
+        .govuk-input:focus {
+            outline: 3px solid #ffdd00;
+            outline-offset: 0;
+            box-shadow: inset 0 0 0 2px;
+        }
+
+        .govuk-button {
+            background-color: #00703c;
+            color: white;
+            border: none;
+            padding: 8px 10px 7px;
+            min-width: 200px;
+            font-size: 19px;
+            line-height: 1.31579;
+            cursor: pointer;
+            border: 2px solid transparent;
+        }
+
+        .govuk-button:hover {
+            background-color: #005a30;
+        }
+
+        .govuk-button:focus {
+            background-color: #005a30;
+            outline: 3px solid #ffdd00;
+            outline-offset: 0;
+        }
+
+        .govuk-error-message {
+            color: #d4351c;
+            font-weight: bold;
+            padding: 15px;
+            margin-bottom: 15px;
+            border-left: 5px solid #d4351c;
+            background: #fff1f0;
+        }
+
+        .govuk-link {
+            color: #1d70b8;
+            text-decoration: underline;
+            cursor: pointer;
+        }
+
+        .govuk-link:hover {
+            color: #003078;
+            text-decoration: underline;
+        }
+
+        .govuk-link:focus {
+            outline: 3px solid #ffdd00;
+            outline-offset: 0;
+            background-color: #ffdd00;
+        }
+
+        .govuk-section-break {
+            border: none;
+            border-bottom: 1px solid #b1b4b6;
+            margin: 30px 0;
+        }
+
+        .govuk-card {
+            border: 1px solid #b1b4b6;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+
+        .govuk-service-item {
+            border-left: 4px solid #1d70b8;
+            padding: 15px;
+            margin-bottom: 10px;
+            background: #f8f8f8;
+            display: flex;
+            align-items: center;
+            transition: background-color 0.2s;
+        }
+
+        .govuk-service-item:hover {
+            background: #f3f3f3;
+        }
+
+        .govuk-service-item .feather {
+            margin-right: 10px;
+            color: #1d70b8;
+        }
+
+        .govuk-service-item .feather-chevron-right {
+            margin-left: auto;
+            color: #1d70b8;
+        }
+
+        .govuk-footer {
+            font-family: "Roboto", arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.25;
+            padding: 25px 0;
+            font-weight: 400;
+            border-top: 1px solid #b1b4b6;
+            color: #0b0c0c;
+            background: #f3f2f1;
+        }
+
+        .govuk-footer__navigation {
+            display: flex;
+            flex-wrap: wrap;
+            margin: 0 -15px;
+        }
+
+        .govuk-footer__section {
+            flex: 1;
+            margin: 0 15px;
+            min-width: 200px;
+        }
+
+        .govuk-footer__heading {
+            margin: 0;
+            padding-bottom: 20px;
+            font-size: 19px;
+            font-weight: bold;
+        }
+
+        .govuk-footer__list {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        .govuk-footer__list-item {
+            margin-bottom: 15px;
+        }
+
+        .govuk-footer__link {
+            color: #0b0c0c;
+            text-decoration: underline;
+            text-underline-offset: 0.1em;
+        }
+
+        .govuk-footer__link:hover {
+            color: #0b0c0c;
+            text-decoration-thickness: 3px;
+        }
+
+        .govuk-footer__meta {
+            display: flex;
+            margin-top: 30px;
+            flex-wrap: wrap;
+            align-items: flex-end;
+            justify-content: space-between;
+        }
+
+        .govuk-footer__meta-item {
+            margin-right: 15px;
+            margin-bottom: 25px;
+        }
+
+        .govuk-footer__meta-item--grow {
+            flex: 1;
+        }
+
+        .govuk-footer__licence-logo {
+            display: inline-block;
+            margin-right: 10px;
+            height: 17px;
+        }
+
+        .govuk-footer__licence-description {
+            display: inline-block;
+            margin: 0 0 0 10px;
+        }
+
+        .govuk-footer__copyright-logo {
+            display: inline-block;
+            min-width: 125px;
+            padding-top: 112px;
+            background-image: url("https://assets.publishing.service.gov.uk/government-frontend/govuk_publishing_components/govuk-crest-2x-c6548884b516041752fc4156a50f084ca387b1e37e4f4668cd109058d924b197.png");
+            background-repeat: no-repeat;
+            background-position: 50% 0%;
+            background-size: 125px 102px;
+            text-align: center;
+            text-decoration: none;
+            white-space: nowrap;
+        }
+
+
+    .govuk-checkboxes__item {
+    font-family: "GDS Transport", arial, sans-serif;
+    font-weight: 400;
+    font-size: 1rem;
+    line-height: 1.25;
+    display: block;
+    position: relative;
+    min-height: 40px;
+    margin-bottom: 10px;
+    padding-left: 40px;
+    clear: left;
+}
+
+.govuk-checkboxes__input {
+    cursor: pointer;
+    position: absolute;
+    z-index: 1;
+    top: -2px;
+    left: -2px;
+    width: 44px;
+    height: 44px;
+    margin: 0;
+    opacity: 0;
+}
+
+.govuk-checkboxes__label {
+    display: inline-block;
+    margin-bottom: 0;
+    padding: 8px 15px 5px;
+    cursor: pointer;
+    touch-action: manipulation;
+}
+
+.govuk-checkboxes__label::before {
+    content: "";
+    box-sizing: border-box;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 40px;
+    height: 40px;
+    border: 2px solid currentColor;
+    background: transparent;
+}
+
+.govuk-checkboxes__label::after {
+    content: "";
+    position: absolute;
+    top: 11px;
+    left: 9px;
+    width: 18px;
+    height: 7px;
+    transform: rotate(-45deg);
+    border: solid;
+    border-width: 0 0 5px 5px;
+    border-top-color: transparent;
+    opacity: 0;
+    background: transparent;
+}
+
+.govuk-checkboxes__input:checked + .govuk-checkboxes__label::after {
+    opacity: 1;
+}
+
+.govuk-checkboxes__input:focus + .govuk-checkboxes__label::before {
+    outline: 3px solid transparent;
+    outline-offset: 3px;
+    box-shadow: 0 0 0 3px #ffdd00;
+}
+
+.govuk-homepage-header {
+    background-color: #1d70b8;
+    margin-bottom: 0;
+    padding: 0;
+    width: 100%;
+}
+
+.govuk-header-top {
+    background: #103b60;
+    width: 100%;
+    padding: 15px 0;
+}
+
+.govuk-header-top__container {
+    max-width: 100%;
+    margin: 0 auto;
+    padding: 0 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.govuk-header__welcome {
+    color: white;
+    font-size: 16px;
+    margin: 0;
+}
+
+.govuk-header__signout {
+    background: transparent;
+    color: white;
+    border: 1px solid white;
+    padding: 5px 10px;
+    font-size: 16px;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.govuk-header__signout:hover {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.govuk-homepage-header__container {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 45px 30px;
+}
+
+.govuk-homepage-header__title {
+    color: #d5e1ef;
+    font-size: 48px;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    margin: 0 0 30px 0;
+    max-width: 750px;
+}
+
+.govuk-homepage-description {
+    color: white;
+    font-size: 24px;
+    margin: 0 0 30px 0;
+    max-width: 750px;
+}
+
+.govuk-search-wrapper {
+    position: relative;
+    margin: 0;
+    max-width: 720px;
+}
+
+.govuk-search-input {
+    height: 50px;
+    padding: 6px 15px;
+    padding-right: 50px;
+    border: 0;
+    font-size: 19px;
+    line-height: 1.31579;
+    width: 100%;
+}
+
+.govuk-search-button {
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 50px;
+    height: 50px;
+    background-color: #1d70b8;
+    border: 0;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.govuk-search-button:hover {
+    background-color: #003078;
+}
+    </style>
+</head>
+<body>
+    <header class="govuk-header">
+        <div class="govuk-header__container">
+            <a href="#" class="govuk-header__logotype">
+                <svg class="govuk-crown" width="32" height="30" viewBox="0 10 130 50" fill="currentColor" role="presentation" focusable="false" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M25 30.2c3.5 1.5 7.7-.2 9.1-3.7 1.5-3.6-.2-7.8-3.9-9.2-3.6-1.4-7.6.3-9.1 3.9-1.4 3.5.3 7.5 3.9 9zM9 39.5c3.6 1.5 7.8-.2 9.2-3.7 1.5-3.6-.2-7.8-3.9-9.1-3.6-1.5-7.6.2-9.1 3.8-1.4 3.5.3 7.5 3.8 9zM4.4 57.2c3.5 1.5 7.7-.2 9.1-3.8 1.5-3.6-.2-7.7-3.9-9.1-3.5-1.5-7.6.3-9.1 3.8-1.4 3.5.3 7.6 3.9 9.1zm38.3-21.4c3.5 1.5 7.7-.2 9.1-3.8 1.5-3.6-.2-7.7-3.9-9.1-3.6-1.5-7.6.3-9.1 3.8-1.3 3.6.4 7.7 3.9 9.1zm64.4-5.6c-3.6 1.5-7.8-.2-9.1-3.7-1.5-3.6.2-7.8 3.8-9.2 3.6-1.4 7.7.3 9.2 3.9 1.3 3.5-.4 7.5-3.9 9zm15.9 9.3c-3.6 1.5-7.7-.2-9.1-3.7-1.5-3.6.2-7.8 3.7-9.1 3.6-1.5 7.7.2 9.2 3.8 1.5 3.5-.3 7.5-3.8 9zm4.7 17.7c-3.6 1.5-7.8-.2-9.2-3.8-1.5-3.6.2-7.7 3.9-9.1 3.6-1.5 7.7.3 9.2 3.8 1.3 3.5-.4 7.6-3.9 9.1zM89.3 35.8c-3.6 1.5-7.8-.2-9.2-3.8-1.4-3.6.2-7.7 3.9-9.1 3.6-1.5 7.7.3 9.2 3.8 1.4 3.6-.3 7.7-3.9 9.1zM69.7 17.7l8.9 4.7V9.3l-8.9 2.8c-.2-.3-.5-.6-.9-.9L72.4 0H59.6l3.5 11.2c-.3.3-.6.5-.9.9l-8.8-2.8v13.1l8.8-4.7c.3.3.6.7.9.9l-5 15.4v.1c-.2.8-.4 1.6-.4 2.4 0 4.1 3.1 7.5 7 8.1h.2c.3 0 .7.1 1 .1.4 0 .7 0 1-.1h.2c4-.6 7.1-4.1 7.1-8.1 0-.8-.1-1.7-.4-2.4V34l-5.1-15.4c.4-.2.7-.6 1-.9zM66 92.8c16.9 0 32.8 1.1 47.1 3.2 4-16.9 8.9-26.7 14-33.5l-9.6-3.4c1 4.9 1.1 7.2 0 10.2-1.5-1.4-3-4.3-4.2-8.7L108.6 76c2.8-2 5-3.2 7.5-3.3-4.4 9.4-10 11.9-13.6 11.2-4.3-.8-6.3-4.6-5.6-7.9 1-4.7 5.7-5.9 8-.5 4.3-8.7-3-11.4-7.6-8.8 7.1-7.2 7.9-13.5 2.1-21.1-8 6.1-8.1 12.3-4.5 20.8-4.7-5.4-12.1-2.5-9.5 6.2 3.4-5.2 7.9-2 7.2 3.1-.6 4.3-6.4 7.8-13.5 7.2-10.3-.9-10.9-8-11.2-13.8 2.5-.5 7.1 1.8 11 7.3L80.2 60c-4.1 4.4-8 5.3-12.3 5.4 1.4-4.4 8-11.6 8-11.6H55.5s6.4 7.2 7.9 11.6c-4.2-.1-8-1-12.3-5.4l1.4 16.4c3.9-5.5 8.5-7.7 10.9-7.3-.3 5.8-.9 12.8-11.1 13.8-7.2.6-12.9-2.9-13.5-7.2-.7-5 3.8-8.3 7.1-3.1 2.7-8.7-4.6-11.6-9.4-6.2 3.7-8.5 3.6-14.7-4.6-20.8-5.8 7.6-5 13.9 2.2 21.1-4.7-2.6-11.9.1-7.7 8.8 2.3-5.5 7.1-4.2 8.1.5.7 3.3-1.3 7.1-5.7 7.9-3.5.7-9-1.8-13.5-11.2 2.5.1 4.7 1.3 7.5 3.3l-4.7-15.4c-1.2 4.4-2.7 7.2-4.3 8.7-1.1-3-.9-5.3 0-10.2l-9.5 3.4c5 6.9 9.9 16.7 14 33.5 14.8-2.1 30.8-3.2 47.7-3.2z"></path>
+                </svg>
+                oneGOV.UK
+            </a>
+        </div>
+    </header>
+
+    <main class="govuk-width-container">
+        <!-- Sign In Form -->
+        <div id="signInForm">
+            <h1 class="govuk-heading-xl">Sign in to oneGOV</h1>
+            <form id="signInFormElement">
+                <div class="govuk-form-group">
+                    <label class="govuk-label" for="signin-email">Email address *</label>
+                    <input class="govuk-input" type="email" id="signin-email" required>
+                </div>
+                <div class="govuk-form-group">
+                    <label class="govuk-label" for="signin-password">Password *</label>
+                    <input class="govuk-input" type="password" id="signin-password" required>
+                </div>
+	<div class="govuk-form-group">
+	    <div class="govuk-checkboxes">
+        	<div class="govuk-checkboxes__item">
+            		<input class="govuk-checkboxes__input" id="signup-stay-signed-in" type="checkbox">
+            		<label class="govuk-checkboxes__label" for="signup-stay-signed-in">
+                		Stay signed in
+            		</label>
+        	</div>
+    	</div>
+</div>
+                <button type="submit" class="govuk-button">Sign in</button>
+            </form>
+            <hr class="govuk-section-break">
+            <p>Don't have an account? <a class="govuk-link" onclick="toggleView('signUp')">Create a oneGOV account</a></p>
+        </div>
+
+        <!-- Sign Up Form -->
+        <div id="signUpForm" style="display: none;">
+            <h1 class="govuk-heading-xl">Create a oneGOV account</h1>
+            <div id="error-message" class="govuk-error-message" style="display: none;"></div>
+            <form id="signUpFormElement">
+                <div class="govuk-form-group">
+                    <label class="govuk-label" for="first-name">First name *</label>
+                    <input class="govuk-input" type="text" id="first-name" required>
+                </div>
+                <div class="govuk-form-group">
+                    <label class="govuk-label" for="last-name">Last name *</label>
+                    <input class="govuk-input" type="text" id="last-name" required>
+                </div>
+                <div class="govuk-form-group">
+                    <label class="govuk-label" for="dob">Date of birth *</label>
+                    <input class="govuk-input" type="date" id="dob" required>
+                </div>
+                <div class="govuk-form-group">
+                    <label class="govuk-label" for="address-line1">Address line 1 *</label>
+                    <input class="govuk-input" type="text" id="address-line1" required>
+                </div>
+                <div class="govuk-form-group">
+                    <label class="govuk-label" for="address-line2">Address line 2 (optional)</label>
+                    <input class="govuk-input" type="text" id="address-line2">
+                </div>
+                <div class="govuk-form-group">
+                    <label class="govuk-label" for="town-city">Town or city *</label>
+                    <input class="govuk-input" type="text" id="town-city" required>
+                </div>
+                <div class="govuk-form-group">
+                    <label class="govuk-label" for="postcode">Postcode *</label>
+                    <input class="govuk-input" type="text" id="postcode" required>
+                </div>
+                <div class="govuk-form-group">
+                    <label class="govuk-label" for="signup-email">Email address *</label>
+                    <input class="govuk-input" type="email" id="signup-email" required>
+                </div>
+                <div class="govuk-form-group">
+                    <label class="govuk-label" for="signup-password">Password *</label>
+                    <input class="govuk-input" type="password" id="signup-password" required>
+                    <p class="govuk-hint">Your password must be at least 8 characters long and contain at least 1 uppercase letter, 1 number and 1 special character.</p>
+                </div>
+                <button type="submit" class="govuk-button">Create account</button>
+            </form>
+            <hr class="govuk-section-break">
+            <p>Already have an account? <a class="govuk-link" onclick="toggleView('signIn')">Sign in</a></p>
+        </div>
+        
+
+        <!-- Dashboard -->
+        <div id="dashboard" style="display: none;">
+            <!-- Popular Services Card - Now at the top -->
+            <div class="govuk-header-top">
+                <div class="govuk-header-top__container">
+                    <p class="govuk-header__welcome">Welcome back, <span id="welcome-name"></span></p>
+                    <button onclick="logout()" class="govuk-header__signout">Sign out</button>
+                </div>
+            </div>
+            
+            <div class="govuk-homepage-header">
+                <div class="govuk-homepage-header__container">
+                    <h1 class="govuk-homepage-header__title">Making government services simpler, clearer, faster</h1>
+                    <form class="govuk-search-form" id="search-form" onsubmit="handleSearch(event)">
+                        <div class="govuk-search-wrapper">
+                            <input 
+                                type="search" 
+                                class="govuk-search-input" 
+                                id="search-input"
+                                name="q"
+                                placeholder="Search GOV.UK"
+                                aria-label="Search GOV.UK">
+                            <button type="submit" class="govuk-search-button" aria-label="Search">
+                                <i data-feather="search" color="white"></i>
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+
+            <div class="govuk-card">
+                <h2 class="govuk-heading-m">Popular on oneGOV</h2>
+                <div class="govuk-service-item">
+                    <i data-feather="credit-card"></i>
+                    <a href="https://www.gov.uk/apply-renew-passport" target="_blank" class="govuk-link">Get a passport</a>
+                    <i data-feather="chevron-right"></i>
+                </div>
+                <div class="govuk-service-item">
+                    <i data-feather="dollar-sign"></i>
+                    <a href="https://www.gov.uk/universal-credit" target="_blank" class="govuk-link">Universal Credit</a>
+                    <i data-feather="chevron-right"></i>
+                </div>
+                <div class="govuk-service-item">
+                    <i data-feather="truck"></i>
+                    <a href="https://www.gov.uk/vehicle-tax" target="_blank" class="govuk-link">Vehicle tax</a>
+                    <i data-feather="chevron-right"></i>
+                </div>
+            </div>
+
+            <!--<div class="govuk-card" id="welcome-section"></div>-->
+            <div class="govuk-card" id="location-services"></div>
+            <div id="age-services"></div>
+        </div>
+    </main>
+
+    <script>
+    // Initialize variables
+    let currentUser = null;
+
+    // Wait for DOM to be fully loaded
+    document.addEventListener('DOMContentLoaded', function() {
+        // Initialize Feather icons
+        feather.replace();
+
+        // Add click event listeners for navigation links
+        document.querySelectorAll('[onclick]').forEach(element => {
+            const functionCall = element.getAttribute('onclick');
+            if (functionCall.includes('toggleView')) {
+                element.removeAttribute('onclick');
+                element.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    const view = functionCall.match(/'([^']+)'/)[1];
+                    toggleView(view);
+                });
+            }
+        });
+
+        // Add form submit event listeners
+        document.getElementById('signInFormElement').addEventListener('submit', handleSignIn);
+        document.getElementById('signUpFormElement').addEventListener('submit', handleSignUp);
+
+        // Check if user is already logged in
+        const savedUser = localStorage.getItem('currentUser');
+        if (savedUser) {
+            currentUser = JSON.parse(savedUser);
+            updateDashboard(currentUser);
+            toggleView('dashboard');
+        }
+    });
+
+    function toggleView(view) {
+        // Hide all views
+        const views = ['signInForm', 'signUpForm', 'dashboard'];
+        views.forEach(v => {
+            document.getElementById(v).style.display = 'none';
+        });
+        
+        // Clear any existing error messages
+        const signInErrorDiv = document.getElementById('signin-error-message');
+        const signUpErrorDiv = document.getElementById('signup-error-message');
+        if (signInErrorDiv) signInErrorDiv.style.display = 'none';
+        if (signUpErrorDiv) signUpErrorDiv.style.display = 'none';
+        
+        // Show requested view
+        if (view === 'signIn') {
+            document.getElementById('signInForm').style.display = 'block';
+        } else if (view === 'signUp') {
+            document.getElementById('signUpForm').style.display = 'block';
+        } else if (view === 'dashboard') {
+            document.getElementById('dashboard').style.display = 'block';
+            feather.replace();
+        }
+    }
+
+
+    function handleSignIn(e) {
+    e.preventDefault();
+    const email = document.getElementById('signin-email').value;
+    const password = document.getElementById('signin-password').value;
+    const staySignedIn = document.getElementById('signup-stay-signed-in').checked;
+    
+    // Get users from localStorage
+    const users = JSON.parse(localStorage.getItem('users')) || {};
+    
+    // Check if user exists and password matches
+    if (users[email] && users[email].password === password) {
+        currentUser = users[email];
+        
+        // Store user data based on stay signed in preference
+        if (staySignedIn) {
+            localStorage.setItem('currentUser', JSON.stringify(currentUser));
+        } else {
+            sessionStorage.setItem('currentUser', JSON.stringify(currentUser));
+        }
+        
+        updateDashboard(currentUser);
+        toggleView('dashboard');
+    } else {
+        let signInErrorDiv = document.getElementById('signin-error-message');
+        if (!signInErrorDiv) {
+            signInErrorDiv = document.createElement('div');
+            signInErrorDiv.id = 'signin-error-message';
+            signInErrorDiv.className = 'govuk-error-message';
+            const form = document.getElementById('signInFormElement');
+            form.insertBefore(signInErrorDiv, form.firstChild);
+        }
+        signInErrorDiv.textContent = 'Invalid email or password';
+        signInErrorDiv.style.display = 'block';
+    }
+}
+
+function handleSignUp(e) {
+    e.preventDefault();
+    const password = document.getElementById('signup-password').value;
+    
+    if (!isStrongPassword(password)) {
+        let signUpErrorDiv = document.getElementById('signup-error-message');
+        if (!signUpErrorDiv) {
+            signUpErrorDiv = document.createElement('div');
+            signUpErrorDiv.id = 'signup-error-message';
+            signUpErrorDiv.className = 'govuk-error-message';
+            const form = document.getElementById('signUpFormElement');
+            form.insertBefore(signUpErrorDiv, form.firstChild);
+        }
+        signUpErrorDiv.textContent = 'Password must be at least 8 characters long, include 1 uppercase letter, 1 number, and 1 special character.';
+        signUpErrorDiv.style.display = 'block';
+        return;
+    }
+
+    const email = document.getElementById('signup-email').value;
+    const firstName = document.getElementById('first-name').value;
+    const lastName = document.getElementById('last-name').value;
+    const age = calculateAge(document.getElementById('dob').value);
+    const location = document.getElementById('town-city').value;
+    
+    // Create user object
+    const user = {
+        name: `${firstName} ${lastName}`,
+        age: age,
+        location: location,
+        email: email,
+        password: password,
+        address: {
+            line1: document.getElementById('address-line1').value,
+            line2: document.getElementById('address-line2').value,
+            city: location,
+            postcode: document.getElementById('postcode').value
+        }
+    };
+    
+    // Get existing users or initialize empty object
+    const users = JSON.parse(localStorage.getItem('users')) || {};
+    
+    // Check if email already exists
+    if (users[email]) {
+        let signUpErrorDiv = document.getElementById('signup-error-message');
+        if (!signUpErrorDiv) {
+            signUpErrorDiv = document.createElement('div');
+            signUpErrorDiv.id = 'signup-error-message';
+            signUpErrorDiv.className = 'govuk-error-message';
+            const form = document.getElementById('signUpFormElement');
+            form.insertBefore(signUpErrorDiv, form.firstChild);
+        }
+        signUpErrorDiv.textContent = 'An account with this email already exists';
+        signUpErrorDiv.style.display = 'block';
+        return;
+    }
+    
+    // Store user data
+    users[email] = user;
+    localStorage.setItem('users', JSON.stringify(users));
+    
+    // Set current user
+    currentUser = user;
+    localStorage.setItem('currentUser', JSON.stringify(currentUser));
+    
+    // Update dashboard and show it
+    updateDashboard(currentUser);
+    toggleView('dashboard');
+    
+    // Clear sign-up form and any error messages
+    document.getElementById('signUpFormElement').reset();
+    const signUpErrorDiv = document.getElementById('signup-error-message');
+    if (signUpErrorDiv) signUpErrorDiv.style.display = 'none';
+}
+
+
+    function logout() {
+        localStorage.removeItem('currentUser');
+        currentUser = null;
+        toggleView('signIn');
+    }
+
+    function isStrongPassword(password) {
+        const strongPasswordRegex = /^(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
+        return strongPasswordRegex.test(password);
+    }
+
+    function calculateAge(birthDate) {
+        const today = new Date();
+        const birth = new Date(birthDate);
+        let age = today.getFullYear() - birth.getFullYear();
+        const monthDiff = today.getMonth() - birth.getMonth();
+        if (monthDiff < 0 || (monthDiff === 0 && today.getDate() < birth.getDate())) {
+            age--;
+        }
+        return age;
+    }
+
+
+    function getAgeSpecificServices(age) {
+    if (age < 16) {
+        return [
+            { 
+                title: 'Education and Learning', 
+                items: [
+                    { name: 'School admissions', url: 'https://www.gov.uk/school-admissions' },
+                    { name: 'Free school meals', url: 'https://www.gov.uk/apply-free-school-meals' },
+                    { name: 'Education maintenance allowance', url: 'https://www.gov.uk/education-maintenance-allowance' }
+                ],
+                icons: ['book', 'coffee', 'dollar-sign']
+            },
+            {
+                title: 'Health Services',
+                items: [
+                    { name: 'Register with a GP', url: 'https://www.nhs.uk/nhs-services/gps/how-to-register-with-a-gp-surgery/' },
+                    { name: 'NHS Young Persons services', url: 'https://www.nhs.uk/young-people/' },
+                    { name: 'Mental health support', url: 'https://www.nhs.uk/mental-health/' }
+                ],
+                icons: ['activity', 'heart', 'smile']
+            }
+        ];
+    } else if (age < 18) {
+        return [
+            {
+                title: 'Learning and Work', 
+                items: [
+                    { name: 'Apprenticeships', url: 'https://www.gov.uk/apprenticeships-guide' },
+                    { name: 'Traineeships', url: 'https://www.gov.uk/find-traineeship' },
+                    { name: 'Learning to drive', url: 'https://www.gov.uk/driving-lessons-learning-to-drive' }
+                ],
+                icons: ['briefcase', 'award', 'navigation']
+            },
+            {
+                title: 'Money and Support',
+                items: [
+                    { name: '16-19 Bursary Fund', url: 'https://www.gov.uk/1619-bursary-fund' },
+                    { name: 'Universal Credit eligibility', url: 'https://www.gov.uk/universal-credit/eligibility' },
+                    { name: 'Opening a bank account', url: 'https://www.gov.uk/bank-accounts-for-young-people' }
+                ],
+                icons: ['dollar-sign', 'credit-card', 'lock']
+            }
+        ];
+    } else if (age < 25) {
+        return [
+            {
+                title: 'Career and Education', 
+                items: [
+                    { name: 'University applications', url: 'https://www.gov.uk/apply-undergraduate-university' },
+                    { name: 'Student finance', url: 'https://www.gov.uk/student-finance' },
+                    { name: 'Graduate schemes', url: 'https://www.gov.uk/find-graduate-jobs' }
+                ],
+                icons: ['book', 'dollar-sign', 'award']
+            },
+            {
+                title: 'Housing and Local Services',
+                items: [
+                    { name: 'Housing Benefit', url: 'https://www.gov.uk/housing-benefit' },
+                    { name: 'Council Tax', url: 'https://www.gov.uk/council-tax' },
+                    { name: 'Voting registration', url: 'https://www.gov.uk/register-to-vote' }
+                ],
+                icons: ['home', 'file-text', 'check-square']
+            }
+        ];
+    } else {
+        return [
+            {
+                title: 'Working, Jobs and Pensions', 
+                items: [
+                    { name: 'Find a job', url: 'https://www.gov.uk/find-a-job' },
+                    { name: 'Workplace pensions', url: 'https://www.gov.uk/workplace-pensions' },
+                    { name: 'National Insurance', url: 'https://www.gov.uk/national-insurance' }
+                ],
+                icons: ['briefcase', 'dollar-sign', 'shield']
+            },
+            {
+                title: 'Family and Home',
+                items: [
+                    { name: 'Marriage registration', url: 'https://www.gov.uk/marriages-civil-partnerships' },
+                    { name: 'Having a baby', url: 'https://www.gov.uk/browse/childcare-parenting/pregnancy-birth' },
+                    { name: 'Buying a home', url: 'https://www.gov.uk/buying-a-home' }
+                ],
+                icons: ['heart', 'users', 'home']
+            }
+        ];
+    }
+}
+
+function getLocationServices(location) {
+    const locationServices = {
+        'London': [
+            { service: 'Transport for London updates', icon: 'truck', url: 'https://tfl.gov.uk/' },
+            { service: 'ULEZ charging', icon: 'dollar-sign', url: 'https://tfl.gov.uk/modes/driving/ultra-low-emission-zone' },
+            { service: 'London Council Tax bands', icon: 'file-text', url: 'https://www.gov.uk/council-tax-bands' },
+            { service: 'Metropolitan Police updates', icon: 'shield', url: 'https://www.met.police.uk/' }
+        ],
+        'Manchester': [
+            { service: 'Greater Manchester Transport', icon: 'truck', url: 'https://tfgm.com/' },
+            { service: 'Manchester City Council services', icon: 'home', url: 'https://www.manchester.gov.uk/info/100003/people_and_communities' },
+            { service: 'Local development plans', icon: 'map', url: 'https://www.manchester.gov.uk/planning' },
+            { service: 'Waste collection schedule', icon: 'trash', url: 'https://www.manchester.gov.uk/bincollections' }
+        ],
+        'default': [
+            { service: 'Find your local council', icon: 'map-pin', url: 'https://www.gov.uk/find-local-council' },
+            { service: 'Report local issues', icon: 'alert-circle', url: 'https://www.gov.uk/report-problem-local-council' },
+            { service: 'Local planning applications', icon: 'home', url: 'https://www.gov.uk/planning-permission' },
+            { service: 'Bin collection dates', icon: 'calendar', url: 'https://www.gov.uk/rubbish-collection-day' }
+        ]
+    };
+
+    return locationServices[location] || locationServices.default;
+}
+
+function updateDashboard(user) {
+    // Welcome section remains the same
+    document.getElementById('welcome-name').textContent = user.name;
+
+
+    // Location services with links
+    const locationServices = getLocationServices(user.location);
+            let locationHtml = `
+                <h3 class="govuk-heading-m">Services in ${user.location}</h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            `;
+    locationServices.forEach(service => {
+        locationHtml += `
+            <div class="govuk-service-item">
+                <i data-feather="${service.icon}"></i>
+                <a href="${service.url}" target="_blank" class="govuk-link">${service.service}</a>
+                <i data-feather="chevron-right"></i>
+            </div>
+        `;
+    });
+    locationHtml += '</div>';
+    document.getElementById('location-services').innerHTML = locationHtml;
+
+    // Age specific services with links
+    const ageServices = getAgeSpecificServices(user.age);
+    let ageHtml = '';
+    ageServices.forEach((section, index) => {
+        ageHtml += `
+            <div class="govuk-card">
+                <h3 class="govuk-heading-m">${section.title}</h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        `;
+        section.items.forEach((item, i) => {
+            ageHtml += `
+                <div class="govuk-service-item">
+                    <i data-feather="${section.icons[i]}"></i>
+                    <a href="${item.url}" target="_blank" class="govuk-link">${item.name}</a>
+                    <i data-feather="chevron-right"></i>
+                </div>
+            `;
+        });
+        ageHtml += '</div></div>';
+    });
+    document.getElementById('age-services').innerHTML = ageHtml;
+    
+    // Reinitialize Feather icons
+    feather.replace();
+}
+        // Add new search handling function
+        function handleSearch(e) {
+            e.preventDefault();
+            const searchQuery = document.getElementById('search-input').value.trim();
+            if (searchQuery) {
+                // Redirect to GOV.UK search with the query
+                window.open(`https://www.gov.uk/search?q=${encodeURIComponent(searchQuery)}`, '_blank');
+            }
+        }
+        
+        // Update the DOMContentLoaded event listener to include search icon
+        document.addEventListener('DOMContentLoaded', function() {
+            // Previous initialization code
+            feather.replace();
+            
+            // Add form submit event listeners
+            document.getElementById('signInFormElement').addEventListener('submit', handleSignIn);
+            document.getElementById('signUpFormElement').addEventListener('submit', handleSignUp);
+            
+            // Check if user is already logged in
+            const savedUser = localStorage.getItem('currentUser');
+            if (savedUser) {
+                currentUser = JSON.parse(savedUser);
+                updateDashboard(currentUser);
+                toggleView('dashboard');
+            }
+        });
+    </script>
+
+<footer class="govuk-footer" role="contentinfo">
+    <div class="govuk-width-container">
+        <div class="govuk-footer__navigation">
+            <div class="govuk-footer__section">
+                <h2 class="govuk-footer__heading">Services and information</h2>
+                <ul class="govuk-footer__list">
+                    <li class="govuk-footer__list-item">
+                        <a class="govuk-footer__link" href="https://www.gov.uk/browse/benefits">Benefits</a>
+                    </li>
+                    <li class="govuk-footer__list-item">
+                        <a class="govuk-footer__link" href="https://www.gov.uk/browse/births-deaths-marriages">Births, deaths, marriages and care</a>
+                    </li>
+                    <li class="govuk-footer__list-item">
+                        <a class="govuk-footer__link" href="https://www.gov.uk/browse/business">Business and self-employed</a>
+                    </li>
+                    <li class="govuk-footer__list-item">
+                        <a class="govuk-footer__link" href="https://www.gov.uk/browse/childcare-parenting">Childcare and parenting</a>
+                    </li>
+                    <li class="govuk-footer__list-item">
+                        <a class="govuk-footer__link" href="https://www.gov.uk/browse/citizenship">Citizenship and living in the UK</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="govuk-footer__section">
+                <h2 class="govuk-footer__heading">Government activity</h2>
+                <ul class="govuk-footer__list">
+                    <li class="govuk-footer__list-item">
+                        <a class="govuk-footer__link" href="https://www.gov.uk/government/organisations">Departments</a>
+                    </li>
+                    <li class="govuk-footer__list-item">
+                        <a class="govuk-footer__link" href="https://www.gov.uk/search/news-and-communications">News</a>
+                    </li>
+                    <li class="govuk-footer__list-item">
+                        <a class="govuk-footer__link" href="https://www.gov.uk/guidance">Guidance and regulation</a>
+                    </li>
+                    <li class="govuk-footer__list-item">
+                        <a class="govuk-footer__link" href="https://www.gov.uk/research">Research and statistics</a>
+                    </li>
+                    <li class="govuk-footer__list-item">
+                        <a class="govuk-footer__link" href="https://www.gov.uk/government/publications">Policy papers and consultations</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="govuk-footer__section">
+                <h2 class="govuk-footer__heading">Support</h2>
+                <ul class="govuk-footer__list">
+                    <li class="govuk-footer__list-item">
+                        <a class="govuk-footer__link" href="https://www.gov.uk/help">Help</a>
+                    </li>
+                    <li class="govuk-footer__list-item">
+                        <a class="govuk-footer__link" href="https://www.gov.uk/help/privacy-notice">Privacy</a>
+                    </li>
+                    <li class="govuk-footer__list-item">
+                        <a class="govuk-footer__link" href="https://www.gov.uk/help/cookies">Cookies</a>
+                    </li>
+                    <li class="govuk-footer__list-item">
+                        <a class="govuk-footer__link" href="https://www.gov.uk/help/accessibility-statement">Accessibility statement</a>
+                    </li>
+                    <li class="govuk-footer__list-item">
+                        <a class="govuk-footer__link" href="https://www.gov.uk/contact">Contact</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
+        <div class="govuk-footer__meta">
+            <div class="govuk-footer__meta-item govuk-footer__meta-item--grow">
+                <svg aria-hidden="true" focusable="false" class="govuk-footer__licence-logo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 483.2 195.7" height="17" width="41">
+                    <path fill="currentColor" d="M421.5 142.8V.1l-50.7 32.3v161.1h112.4v-50.7zm-122.3-9.6A47.12 47.12 0 0 1 221 97.8c0-26 21.1-47.1 47.1-47.1 16.7 0 31.4 8.7 39.7 21.8l42.7-27.2A97.63 97.63 0 0 0 268.1 0c-36.5 0-68.3 20.1-85.1 49.7A98 98 0 0 0 97.8 0C43.9 0 0 43.9 0 97.8s43.9 97.8 97.8 97.8c36.5 0 68.3-20.1 85.1-49.7a97.76 97.76 0 0 0 149.6 25.4l19.4 22.2h3v-87.8h-80l24.3 27.5zM97.8 145c-26 0-47.1-21.1-47.1-47.1s21.1-47.1 47.1-47.1 47.2 21 47.2 47S123.8 145 97.8 145"/>
+                </svg>
+                <span class="govuk-footer__licence-description">
+                    All content is available under the
+                    <a class="govuk-footer__link" href="https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/" rel="license">Open Government Licence v3.0</a>, except where otherwise stated
+                </span>
+            </div>
+            <div class="govuk-footer__meta-item">
+                <a class="govuk-footer__copyright-logo" href="https://www.nationalarchives.gov.uk/information-management/re-using-public-sector-information/uk-government-licensing-framework/crown-copyright/">© Crown copyright</a>
+            </div>
+        </div>
+    </div>
+</footer>
+</body>
+</html>
